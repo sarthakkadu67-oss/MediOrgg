@@ -1,6 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 import { ActivityType } from "../types";
 
+// Fix for "Cannot find name process"
+declare var process: any;
+
 // Helper to safely get env vars in both Vite and Expo environments
 const getApiKey = () => {
   // Vite (Web)
@@ -49,7 +52,8 @@ export const getHealthInsight = async (
       contents: prompt,
     });
 
-    const text = response.text;
+    // Safe access to text property
+    const text = response?.text;
     return text ? text.trim() : "Keep moving forward!";
   } catch (error) {
     console.error("Error fetching Gemini insight:", error);
