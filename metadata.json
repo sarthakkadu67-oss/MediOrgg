@@ -1,0 +1,5 @@
+{
+  "name": "MediOrg",
+  "description": "A personal health tracker app to monitor water intake, steps, and sleep with AI-powered insights.",
+  "requestFramePermissions": []
+}
